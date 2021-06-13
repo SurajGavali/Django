@@ -20,5 +20,5 @@ from . import views
 #from django.conf.urls import url
 
 urlpatterns = [
-    path('',views.article_home),
+    path('',views.article_home, name = 'article_home'),
 ]
