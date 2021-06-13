@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>BLOGS | surajgavali</title>
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+
+    <body>
+    
+        <div class=wrapper>
+            <h1><a href="{% url 'articles:home' %}"><img src="{% static 'logo.png' %}" style="height: 100px; width: 160px; margin-left: 3%"/></a></h1>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>
