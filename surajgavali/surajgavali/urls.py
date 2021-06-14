@@ -21,9 +21,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns #for static 
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/', include('articles.urls')),
+    path('accounts/',include('accounts.urls')),
     path('about/', views.about),
     path('',views.home),
 ]
