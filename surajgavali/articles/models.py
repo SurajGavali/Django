@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Article(models.Model):
@@ -6,9 +7,10 @@ class Article(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    #add in thumbnail later
+    #add in thumbnail 
     thumb = models.ImageField(default='default.png',blank=True)
-    #add in author later
+    #add in author 
+    author = models.ForeignKey(User,on_delete=models.CASCADE,default=None)
 
     def __str__(self):
         return self.title
