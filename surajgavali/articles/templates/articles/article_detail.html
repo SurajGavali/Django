@@ -2,13 +2,14 @@
 
 {% block content %}
 
-<div class="articl-detail">
+<div class="article-detail">
 
     <div class="article">
-
-        <img src="{{ article.thumb.url }}"/>
+        
+        <center><img src="{{ article.thumb.url }}"/></center>
+        
         <h2>{{ article.title }}</h2>
-        <p>{{ article.body }}</p>
+        <h3>{{ article.body }}</h3>
         <p>{{ article.date }}</p>
     </div>
 
