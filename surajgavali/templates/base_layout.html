@@ -5,23 +5,41 @@
     <head>
         <meta charset="UTF-8">
         <title>BLOGS | surajgavali</title>
-        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head>
 
     <body>
     
-        <div class=wrapper>
-            <h1><a href="{% url 'articles:home' %}"><img src="{% static 'logo1.png' %}" style="height: 100px; width: 100px; margin-left: 3%"/></a></h1>
+        <header class=wrapper>
+                <h1><a href="{% url 'home' %}"><img src="{% static 'logo1.png' %}" style="height: 40%;" alt="SurajGavali"/></a></h1>
+
             <nav>
+
                 <ul>
+                    {% if user.is_authenticated %}
+
+                    <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
+
                     <li>
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
                         </form>
                     </li>
+                        
+                       
+                    {% else %}
+                        
+                    <li><a class="login-link" href="{% url 'accounts:login' %}">Login</a></li>
+                    <li><a class="signup-link" href="{% url 'accounts:signup' %}">Signup</a></li>
+                       
+                    {% endif %}
                 </ul>
             </nav>
+        </header>
+
+        <div class="wrapper">
             {% block content %}
             {% endblock %}
         </div>
