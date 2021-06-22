@@ -11,17 +11,24 @@
 
     <body>
     
-        <header class=wrapper>
-                <h1><a href="{% url 'home' %}"><img src="{% static 'logo1.png' %}" style="height: 40%;" alt="SurajGavali"/></a></h1>
+            <!-- <h1><a href="{% url 'home' %}"><img src="{% static 'logo1.png' %}" style="height: 40%;" alt="SurajGavali"/></a></h1> -->
 
             <nav>
 
-                <ul>
+                <div class="hamburger">
+
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+
+                <ul class="nav-links">
                     {% if user.is_authenticated %}
 
                     <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
 
                     <li>
+
                         <form class="logout-link" action="{% url 'accounts:logout' %}" method="POST">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
@@ -37,12 +44,16 @@
                     {% endif %}
                 </ul>
             </nav>
-        </header>
+        
 
-        <div class="wrapper">
-            {% block content %}
-            {% endblock %}
-        </div>
+        <section>
+                <div class="wrapper">
+                        {% block content %}
+                        {% endblock %}
+                </div>
+        </section>
 
     </body>
+
+    <script src="/static/js/nav.js"></script>
 </html>
